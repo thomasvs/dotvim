@@ -20,6 +20,9 @@ call pathogen#helptags()
 
 """ defaults
 
+" statusline always
+:set laststatus=2
+
 " recommended defaults from pathogen
 syntax on
 filetype plugin indent on
