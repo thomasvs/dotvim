@@ -11,7 +11,7 @@ execute pathogen#infect()
 "" http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
 " keep these at the top
 
-call pathogen#runtime_append_all_bundles()
+call pathogen#incubate()
 call pathogen#helptags()
 
 """ settings for bundles
