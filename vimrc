@@ -14,6 +14,9 @@ execute pathogen#infect()
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+""" settings for bundles
+:runtime settings/*.vim
+
 
 """ defaults
 
