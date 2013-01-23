@@ -98,8 +98,8 @@ snippet exec
 
 snippet user
 	user { "${1:user}":
-		comment     => "${2:$1}",
 		ensure      => present,
+		comment     => "${2:$1}",
 		managehome  => true,
 		home        => "${3:/home/$1}"
 	}
@@ -143,8 +143,8 @@ snippet define
 
 snippet service
 	service { "${1:service}":
-		enable      => ${2:true},
 		ensure      => ${3:running},
+		enable      => ${2:true},
 		hasstatus   => true,
 	}
 
