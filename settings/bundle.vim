@@ -1,2 +1,4 @@
 """ settings for bundles
-:runtime settings/bundle/*.vim
+
+" ! includes all found files, not just first one
+:runtime! settings/bundle/*.vim
