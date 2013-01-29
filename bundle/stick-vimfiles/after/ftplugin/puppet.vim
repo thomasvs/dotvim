@@ -32,10 +32,17 @@ function! s:SetModuleVars()
   if b:buffername == 'init.pp'
     let b:initpp = expand("%:p")
   else
-    " search path for init.pp
-    let b:search_path = './**'
-    let b:search_path = b:search_path . ';' . getcwd() . ';' . g:puppet_stop_dirs
-    let b:initpp = findfile("init.pp", b:search_path) " find an init.pp up or down
+    " start with the directory our file is in, the most likely candidate
+    let b:search_path = expand("%:h")
+    let b:initpp = findfile("init.pp", b:search_path)
+
+    if b:initpp == ''
+      " search path for init.pp
+      let b:search_path = './**'
+      let b:search_path = b:search_path . ';' . getcwd() . ';' . g:puppet_stop_dirs
+
+      let b:initpp = findfile("init.pp", b:search_path) " find an init.pp up or down
+    endif
   endif
 
   " find what we assume to be our module dir
