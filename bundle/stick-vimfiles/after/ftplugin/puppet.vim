@@ -10,8 +10,12 @@ endif
 let b:did_ftplugin = 1
 
 " detect if we are in a module and set variables for classpath (autoloader),
-" modulename, modulepath, and classname
+" module_name, module_path, and classname
 " useful to use in templates
+" for example, given modules/mymodule/manifests/myclass.pp
+" classpath: mymodule::myclass
+" classname: myclass
+
 function! s:SetModuleVars()
 
   " set these to any dirs you want to stop searching on
@@ -22,6 +26,7 @@ function! s:SetModuleVars()
     let g:puppet_stop_dirs = '/tmp;/private/tmp'
   endif
 
+  " set initpp to the full path to the init.pp this module is in or under
   " check if we are actually trying to create init.pp
   let b:buffername = expand("%:t")
   if b:buffername == 'init.pp'
